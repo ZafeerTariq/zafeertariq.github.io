@@ -64,3 +64,28 @@ body {
 	font-size: 0.95rem;
 	color: #ccc;
 }
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.social-icons {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
