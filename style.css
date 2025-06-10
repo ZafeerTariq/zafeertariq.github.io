@@ -102,8 +102,12 @@ header p {
 }
 
 .shader-content h2 {
-  color: #ff457a;
+  color: #fe1155;
   margin-top: 2rem;
+}
+
+.shader-code h3 {
+	color: #ff457a;
 }
 
 .shader-code pre {

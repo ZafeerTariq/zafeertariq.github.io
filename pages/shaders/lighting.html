@@ -8,27 +8,68 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../../style.css" />
+
+		<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-hlsl.min.js"></script>
 	</head>
 
 	<body>
 		<header>
 			<h1>Lighting Models</h1>
 			<p>The Lambert reflectance and the Phong / Blinn-Phong reflection models</p>
+			<p>The complete code can be found <a href="https://github.com/ZafeerTariq/Unity-Shaders/blob/master/Assets/Shaders/Frag%20-%20Vert/Light.cginc?plain=1#L35-L67">here</a> </p>
 		</header>
 
 		<main class="shader-content">
 			<section class="shader-description">
 			<h2>Overview</h2>
-			<p>This shader demonstrates the basic Lambertian diffuse lighting model along with Phong and Blinn-Phong specular highlights. It was implemented in Unity using HLSL within a custom shader graph.</p>
+			<p>This shader demonstrates the basic Lambertian diffuse lighting model along with Phong and Blinn-Phong specular highlights. It was implemented in Unity using HLSL.</p>
 			</section>
 
 			<section class="shader-video">
 			<h2>Live Demo</h2>
+			<p>This demo shows the lighting with Lambertian diffuse highlight and the Blinn-Phong specular highlight with no ambient light. There is only a single Directional Light in the scene.</p>
 			<video autoplay loop muted playsinline width="640">
 				<source src="../../assets/videos/shaders/lighting.mkv" type="video/mp4">
 				Your browser does not support the video tag.
 			</video>
 			</section>
+
+			<section class="shader-code">
+				<h2>Some Explanation</h2>
+
+				<h3>Lambertian</h3>
+				<p>The Lambertian Lighting model calculates the intensity of the light according to the angle between the light direction and the normal of the surface. The intensity is highest when the light is in the same direction as the normal and decreases as it starts rotating. For this the cosine function can help us, so the Lambertian diffuse light is calculated as:</p>
+				<pre><code class="language-hlsl">
+float3 N = normalize( i.normal );             // surface normal
+float3 L = _WorldSpaceLightPos0.xyz;          // light direction
+float lambertian = saturate( dot( N, L ) );   // normal * light direction * cos( theta )
+float3 diffuseLight = lambertian * _LightColor0.xyz;
+				</code></pre>
+
+				<h3>Phong</h3>
+				<p>The Phong specular highlight considers the view direction. It first reflects the light around the surface normal, then calculates the specular according to the angle between the reflected light and the view direction. In this way the highlights appear most strong where the reflection vector aligns with the view angle.</p>
+				<pre><code class="language-hlsl">
+float3 V = normalize( _WorldSpaceCameraPos - i.worldPos );    // view angle from the camera
+float3 R = reflect( -L, N );    // reflects the light around the normal
+
+float3 specularLight = saturate( dot( V, R ) );
+specularLight *= _LightColor0.xyz;
+				</code></pre>
+
+				<h3>Blinn-Phong</h3>
+				<p>In Blinn-Phong, a half-vector is used instead of the view angle. The highlight is calculated according to the angle between the half-vector and the surface normal. The half-vector is the vector half way between the light direction and view angle. This provides similar results to Phong but often with better performance.</p>
+				<pre><code class="language-hlsl">
+float3 H = normalize( L + V );    // half vector, half way between light dir and view angle
+
+float3 specularLight = saturate( dot( H, N ) );
+specularLight *= _LightColor0.xyz;
+				</code></pre>
+			</section>
+
+		</main>
+
 	</body>
 
 </html>
