@@ -1,0 +1,30 @@
+.shader-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #eee;
+}
+
+.shader-content h2 {
+  color: #fe1155;
+  margin-top: 2rem;
+}
+
+.shader-code h3 {
+	color: #ff457a;
+}
+
+.shader-code pre {
+  background-color: #1e2a38;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 8px;
+  color: #f8f8f2;
+  font-size: 0.95rem;
+}
+
+.shader-video video {
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+}

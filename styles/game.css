@@ -1,0 +1,18 @@
+.game-content {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.screenshot-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.5rem;
+	margin-top: 1rem;
+}
+
+.screenshot-grid img {
+	width: 100%;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
