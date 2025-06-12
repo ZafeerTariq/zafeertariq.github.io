@@ -124,3 +124,16 @@ header p {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   margin-top: 1rem;
 }
+
+.feature-list {
+	list-style-type: disc;
+	margin-left: 2rem;
+	padding-left: 1rem;
+	line-height: 1.8;
+	font-size: 1.1em;
+	color: #ccc;
+}
+
+.feature-list li::marker {
+	color: #ff457a;
+}

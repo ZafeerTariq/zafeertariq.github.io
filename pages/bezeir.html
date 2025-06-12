@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Bézier Curves</title>
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Bézier Curves</h1>
+			<p>A Bézier Curve editor with upto 9 points.</p>
+		</header>
+
+		<main class="shader-content">
+			<section class="shader-description">
+				<h2>Overview</h2>
+				<p>This simple editor was made in C++ using SFML as a rendering library with imgui for the simple UI to control stuff like:</p>
+				<ul class="feature-list">
+					<li>Show/Hide Intermediate Points.</li>
+					<li>Curve Resolution.</li>
+					<li>Number Of Points.</li>
+					<li>( x, y ) poisitoin of every point.</li>
+				</ul>
+			</section>
+
+			<section class="shader-video">
+				<h2>Live Demo</h2>
+				<p>This demo shows a Bézier Curve with 7 control points with one start and end point each. The intermediate points which are used to Lerp to achieve the final curve are also shown.</p>
+				<video autoplay loop muted playsinline width="640">
+					<source src="../assets/videos/bezeir/bezeir.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</section>
+
+			<section class="shader-code">
+				<h2>Some Explanation</h2>
+				<p>The simplest Bézier Curve is the cubic Bézier which can be made by using 3 points. Lets call them A, B and C. We Linearly Interpolate between A and B and B and C. Then we also Lerp between the points we get from the previous Lerps. This final point creates a simple cubic curve with a single control point (point B).</p>
+				<pre><code class="language-hlsl">
+Point A = ( 1, 1 );
+Point B = ( 2, 2 );
+Point C = ( 3, 1 );
+
+Point D = Lerp( A, B, t );
+Point E = Lerp( B, C, t );
+
+Point F = Lerp( D, E, t );
+				</code></pre>
+				<p>This F point, represented by the Blue Circle in the below video, gives us the final curve where t goes form [0-1].</p>
+
+				<video autoplay loop muted playsinline width="640">
+					<source src="../assets/videos/bezeir/cubic bezeir.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</section>
+		</main>
+	</body>
+
+</html>
