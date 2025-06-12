@@ -2,6 +2,12 @@
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 2rem;
+	color: #eee;
+}
+
+.game-content h2 {
+  color: #fe1155;
+  margin-top: 2rem;
 }
 
 .screenshot-grid {
