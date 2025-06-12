@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Isle of Shadows</title>
+		<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Isle of Shadows</h1>
+			<p>A procedurally generated island survival game built using Unity.</p>
+			<p>The complete code can be found <a href="https://github.com/ZafeerTariq/Isle-Of-Shadows">here</a> </p>
+
+		</header>
+
+		<main class="game-content">
+			<section class="game-features">
+				<h2>Key Features</h2>
+				<ul class="feature-list">
+					<li>
+						Procedural terrain and foliage generation.
+						<ul><li>Every playthrough creates a unique island using noise-based terrain generation.</li></ul>
+					</li>
+
+					<li>
+						Crafting and resource gathering system.
+						<ul><li>Collect wood, stone, and other materials to craft weapons.</li></ul>
+					</li>
+
+					<li>
+						Day-Night Cycle.
+						<ul><li>Dynamic lighting changes based on the time of day.</li></ul>
+						<ul><li>Spawns enemies at night.</li></ul>
+					</li>
+
+					<li>Basic AI for enemies.</li>
+
+					<li>
+						Highlights the current collectible resource using a custom Fresnel Highlight Shader.
+					</li>
+				</ul>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/isle-of-shadows/Screenshot (3).png" alt="Gameplay Screenshot 1" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (4).png" alt="Gameplay Screenshot 2" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (5).png" alt="Gameplay Screenshot 3" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (7).png" alt="Gameplay Screenshot 4" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (8).png" alt="Gameplay Screenshot 5" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (9).png" alt="Gameplay Screenshot 6" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (10).png" alt="Gameplay Screenshot 7" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (11).png" alt="Gameplay Screenshot 8" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (12).png" alt="Gameplay Screenshot 9" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<section class="shader-description">
+				<h2>Procedural Generation</h2>
+				<div style="color:white">
+					<p>The game uses Noise-based procedural generation techniques to generated the island meshes and the regions on the island. Different noise maps are generated, one for the height of island, one for region and one for the terrain.</p>
+					<ul class="feature-list">
+						<li>The region and terrain map determine the places to spawn resources like Tree, Stone etc.</li>
+						<li>The height map determines the mesh vertex position and the vertex color at that height.</li>
+					</ul>
+					<p>Below are some screenshot showing some generated maps.</p>
+				</div>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/isle-of-shadows/Screenshot (13).png" alt="Gameplay Screenshot 1" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (14).png" alt="Gameplay Screenshot 2" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (15).png" alt="Gameplay Screenshot 3" class="lightbox-trigger">
+					<img src="../assets/images/isle-of-shadows/Screenshot (16).png" alt="Gameplay Screenshot 4" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<div id="lightbox-modal" class="lightbox-modal">
+				<span class="lightbox-close">&times;</span>
+				<img class="lightbox-content" id="lightbox-img" src="">
+			</div>
+
+			<script>
+				const lightbox = document.getElementById("lightbox-modal");
+				const lightboxImg = document.getElementById("lightbox-img");
+				const closeBtn = document.querySelector(".lightbox-close");
+
+				document.querySelectorAll(".lightbox-trigger").forEach(img => {
+					img.addEventListener("click", () => {
+						lightbox.style.display = "flex";
+						lightboxImg.src = img.src;
+					});
+				});
+
+				closeBtn.addEventListener("click", () => {
+					lightbox.style.display = "none";
+				});
+
+				lightbox.addEventListener("click", (e) => {
+					if (e.target === lightbox) {
+						lightbox.style.display = "none";
+					}
+				});
+			</script>
+
+		</main>
+	</body>
+
+</html>
