@@ -84,3 +84,24 @@
 .feature-list li::marker {
 	color: #ff457a;
 }
+
+.resume-fixed-button {
+  position: fixed;
+  top: 20px; /* Adjust to change vertical distance */
+  right: 20px; /* Change to `left: 20px;` if you want it on the left */
+  background-color: #fe1155;
+  color: white;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.resume-fixed-button:hover {
+  background-color: #ff457a;
+  transform: translateY(-2px);
+}
