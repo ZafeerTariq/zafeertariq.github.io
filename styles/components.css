@@ -105,3 +105,10 @@
   background-color: #ff457a;
   transform: translateY(-2px);
 }
+
+.video-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+}
