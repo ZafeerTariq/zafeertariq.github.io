@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Modular Multiplication Circle</title>
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/components.css" />
+		<link rel="stylesheet" href="../styles/shader.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Modular Multiplication Circle</h1>
+			<p>A visualization of modular arithmetic patterns using lines drawn over a circle.</p>
+		</header>
+
+		<main class="shader-content">
+			<section class="shader-description">
+				<h2>Overview</h2>
+				<p>This visualization was implemented in C++ using SFML as a rendering library with ImGui for UI controls. It draws <code>N</code> points evenly spaced around a circle and connects each point <code>i</code> to <code>(i × k) mod N</code>. The result produces intricate and often beautiful patterns governed by modular multiplication.</p>
+
+				<p>The UI allows you to control:</p>
+				<ul class="feature-list">
+					<li>Number of Points <code>(N)</code>.</li>
+					<li>Multiplication Factor <code>(k)</code>.</li>
+					<li>Animation Speed.</li>
+					<li>Toggle to animate <code>k</code> over time.</li>
+					<li>Option to force <code>k</code> to remain an integer when adjusting manually.</li>
+				</ul>
+			</section>
+
+			<section class="shader-code">
+				<h2>Some Explanation</h2>
+
+				<p>A total of N points are placed evenly around a circle using:</p>
+				<pre><code>
+for( i = 0 to N - 1 )
+	angle = 2 * PI * i / N
+	a = ( center.x + radius * cos( angle ), center.y + radius * sin( angle ) )
+				</code></pre>
+
+				<p>Next, for every point i, it is connected to the point ( i * k ) mod N.</p>
+				<pre><code>
+for( i = 0 to N - 1 )
+	a = points[i]
+	b = points[( i * k ) % N]
+				</code></pre>
+
+				<p>This works for integers but to animate this we can use k as a floating point number and calculate the position of the point which i is connected to using:</p>
+				<pre><code>
+for( i = 0 to N - 1 )
+	angle = 2 * PI * i * k / N;
+	b = ( center.x + radius * cos( angle ), center.y + radius * sin( angle ) )
+				</code></pre>
+
+				<p>Finally, we draw a line from a to b.</p>
+			</section>
+		</main>
+	</body>
+
+</html>
