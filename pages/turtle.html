@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Turtle Fight</title>
+		<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/components.css" />
+		<link rel="stylesheet" href="../styles/game.css" />
+		<link rel="stylesheet" href="../styles/lightbox.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Turtle Fight</h1>
+			<p>A tower defence strategy game where player spawns turtles to attack the opponent's castle while defending their own.</p>
+			<p>Try the game <a href="https://yandex.com/games/app/484809?draft=true&lang=en">here</a> (WIP)</p>
+		</header>
+
+		<main class="game-content">
+			<section class="game-features">
+				<h2>Platform, Technologies, Monetization</h2>
+				<ul class="feature-list">
+				  <li>Developed using Cocos Creator engine for HTML5 platform.</li>
+				  <li>Has In-App Purchases on the Yandex Game platform for in-game currency and bundles.</li>
+				  <li>Integrated rewarded video and interstitial advertisements at meaningful points in game.</li>
+				</ul>
+			</section>
+
+			<section class="game-features">
+				<h2>Key Features</h2>
+				<ul class="feature-list">
+				  <li>
+						Gameplay
+						<ul>
+							<li>Four turtle classes with unique stats like Damage, Strenght, Speed and Spawn cost.</li>
+							<li>Opposing turtles push each in a lane depending on their strenght.</li>
+							<li>Turtles advance towards the opponent's castle and deal damage.</li>
+							<li>Turtles can be upgraded upto level 5, increasing their stats.</li>
+							<li>Special emphasis on enhancing game-feel and "juice" elements.</li>
+						</ul>
+					</li>
+					<li>
+					  	Cosmetic Customizations
+						<ul>
+							<li>5 unique turtle skins.</li>
+							<li>2 map skins.</li>
+						</ul>
+					</li>
+					<li>
+						Two power-ups are available for player to use.
+						<ul>
+							<li>Turbo Boost: increases movement speed of all player turtles.</li>
+							<li>Energy Drink: increases the damage turtles deal.</li>
+						</ul>
+					</li>
+					<li>
+						Adaptive AI.
+						<ul>
+							<li>AI that takes into account the state of each lane to make spawn decisions.</li>
+							<li>Accounts for player level and turtle upgrades to set AI difficulty level.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/turtle/icon.png" alt="Gameplay Screenshot 1" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot.png" alt="Gameplay Screenshot 2" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot1.png" alt="Gameplay Screenshot 3" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (7).png" alt="Gameplay Screenshot 4" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (8).png" alt="Gameplay Screenshot 5" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (9).png" alt="Gameplay Screenshot 6" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (10).png" alt="Gameplay Screenshot 7" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (11).png" alt="Gameplay Screenshot 8" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (12).png" alt="Gameplay Screenshot 9" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<div id="lightbox-modal" class="lightbox-modal">
+				<span class="lightbox-close">&times;</span>
+				<img class="lightbox-content" id="lightbox-img" src="">
+			</div>
+
+			<script>
+				const lightbox = document.getElementById("lightbox-modal");
+				const lightboxImg = document.getElementById("lightbox-img");
+				const closeBtn = document.querySelector(".lightbox-close");
+
+				document.querySelectorAll(".lightbox-trigger").forEach(img => {
+					img.addEventListener("click", () => {
+						lightbox.style.display = "flex";
+						lightboxImg.src = img.src;
+					});
+				});
+
+				closeBtn.addEventListener("click", () => {
+					lightbox.style.display = "none";
+				});
+
+				lightbox.addEventListener("click", (e) => {
+					if (e.target === lightbox) {
+						lightbox.style.display = "none";
+					}
+				});
+			</script>
+		</main>
+	</body>
+
+</html>

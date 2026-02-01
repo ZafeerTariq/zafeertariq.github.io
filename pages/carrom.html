@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Carrom Star</title>
+		<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/components.css" />
+		<link rel="stylesheet" href="../styles/game.css" />
+		<link rel="stylesheet" href="../styles/lightbox.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Carrom Star</h1>
+			<p>Carrom game with different game modes and leagues.</p>
+			<p>Try the game <a href="https://yandex.com/games/app/487923?draft=true&lang=en">here</a> (WIP)</p>
+		</header>
+
+		<main class="game-content">
+			<section class="game-features">
+				<h2>Platform, Technologies, Monetization</h2>
+				<ul class="feature-list">
+				  <li>Developed using Cocos Creator engine for HTML5 platform.</li>
+				  <li>Has In-App Purchases on the Yandex Game platform for in-game currency and bundles.</li>
+				  <li>Integrated rewarded video and interstitial advertisements at meaningful points in game.</li>
+				</ul>
+			</section>
+
+			<section class="game-features">
+				<h2>Key Features</h2>
+				<ul class="feature-list">
+				  <li>
+						Features three different game modes.
+						<ul>
+							<li>Disc Pool.</li>
+							<li>Carrom Classic.</li>
+							<li>Freestyle.</li>
+						</ul>
+					</li>
+					<li>
+					  	League based progression system.
+						<ul>
+							<li>14 leagues with increasing AI difficulty.</li>
+							<li>Each league has different entry fee and reward structure to encourage player engagement.</li>
+						</ul>
+					</li>
+					<li>
+						Adaptive AI.
+						<ul>
+							<li>AI difficulty scales based on the current league.</li>
+							<li>Rookie league being the easiest, mythic being the hardest.</li>
+						</ul>
+					</li>
+					<li>
+						Two power-ups are available for player to use.
+						<ul>
+							<li>Second Strike: grants additional turn when a turn would normally have ended.</li>
+							<li>Enlarge Striker: increases striker size until player turn is over.</li>
+						</ul>
+					</li>
+					<li>
+						Three chests are available in game.
+						<ul>
+							<li>Daily Chest - one free per day.</li>
+							<li>Basic Chest - available after 3 hours.</li>
+							<li>Premium Chest - available after 8 hours.</li>
+						</ul>
+						Players can spend gems to unlock the Basic and Premium chests early.
+					</li>
+					<li>
+						Daily Missions System.
+						<ul>
+							<li>Three daily missions set each day.</li>
+							<li>Completing each mission grants a key, 3 of which can be used to unlock a chest.</li>
+						</ul>
+					</li>
+					<li>Multiple achievements based on gameplay awarding different rewards and unlocking items in shop.</li>
+					<li>Many unlockable striker and table skins using coins and gems.</li>
+				</ul>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/turtle/Screenshot (7).png" alt="Gameplay Screenshot 4" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (8).png" alt="Gameplay Screenshot 5" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (9).png" alt="Gameplay Screenshot 6" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (10).png" alt="Gameplay Screenshot 7" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (11).png" alt="Gameplay Screenshot 8" class="lightbox-trigger">
+					<img src="../assets/images/turtle/Screenshot (12).png" alt="Gameplay Screenshot 9" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<div id="lightbox-modal" class="lightbox-modal">
+				<span class="lightbox-close">&times;</span>
+				<img class="lightbox-content" id="lightbox-img" src="">
+			</div>
+
+			<script>
+				const lightbox = document.getElementById("lightbox-modal");
+				const lightboxImg = document.getElementById("lightbox-img");
+				const closeBtn = document.querySelector(".lightbox-close");
+
+				document.querySelectorAll(".lightbox-trigger").forEach(img => {
+					img.addEventListener("click", () => {
+						lightbox.style.display = "flex";
+						lightboxImg.src = img.src;
+					});
+				});
+
+				closeBtn.addEventListener("click", () => {
+					lightbox.style.display = "none";
+				});
+
+				lightbox.addEventListener("click", (e) => {
+					if (e.target === lightbox) {
+						lightbox.style.display = "none";
+					}
+				});
+			</script>
+		</main>
+	</body>
+
+</html>
