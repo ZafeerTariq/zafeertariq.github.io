@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>My Pefect Theme Park</title>
+		<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/components.css" />
+		<link rel="stylesheet" href="../styles/game.css" />
+		<link rel="stylesheet" href="../styles/lightbox.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>My Perfect Theme Park</h1>
+			<p>An idle arcade game about managing and expanding your own theme park.</p>
+			<p>Try the game <a href="https://www.crazygames.com/game/my-theme-park-hka">here</a></p>
+		</header>
+
+		<main class="game-content">
+			<section class="game-features">
+				<h2>Platform, Technologies, Monetization</h2>
+				<ul class="feature-list">
+				  <li>Developed using Unity 6 engine for HTML5 (WebGL) platform.</li>
+				  <li>Integrated rewarded video and interstitial advertisements at meaningful points in game.</li>
+				</ul>
+			</section>
+
+			<section class="game-features">
+				<h2>Key Features</h2>
+				<ul class="feature-list">
+					<li>
+						Gameplay
+						<ul>
+							<li>Idle arcade loop centered on building a theme park from scratch — collecting resources, constructing rides, and managing visitor flow..</li>
+							<li>More areas are unlocked using resources, after constructing previous rides.</li>
+							<li>Resource gathering from junkyards which replenish after specific times.</li>
+							<li>Park capacity scales with unlocked areas and constructed rides.</li>
+							<li>Rides periodically get dirty after certian cycles and player has to clean them.</li>
+							<li>Differnt helpers for automation of different things including rides, ticket counter, resources and cleaning.</li>
+						</ul>
+					</li>
+					<li>
+					  	Cosmetic Customizations
+						<ul>
+							<li>Different player and ride skins.</li>
+						</ul>
+					</li>
+					<li>
+						Progression and Engagement
+						<ul>
+							<li>Skill upgrade path that lets players spend gems to improve a number of things.</li>
+							<li>Task system acts as a step by step guide for players to proceed.</li>
+							<li>Daily mission system that lets players earn cash and gems on completing them.</li>
+							<li>VIP guests arrive periodically requiring a rewarded ad to enter; they pay 4× normal rates per ride and drop Gems while walking.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/theme-park/Screenshot.png" alt="Gameplay Screenshot 1" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Screenshot1.png" alt="Gameplay Screenshot 2" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Screenshot2.png" alt="Gameplay Screenshot 3" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<section class="game-features">
+			  <h2>Water Park</h2>
+			  <p>A water themed game similar to this is under development, adding and removing some features from My Parfect Theme Park. Particularly, a dynamic visitor assignemnt mechanic which moves visitors waiting at the end of a queue in an old ride to move to a newly unlocked ride, also assigning any new visitors entered into the park to the new ride until it is run once.</p>
+			</section>
+
+			<section class="game-screenshots">
+				<h2>Screenshots</h2>
+				<div class="screenshot-grid">
+					<img src="../assets/images/theme-park/Water_Screenshot.png" alt="Gameplay Screenshot 1" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Water_Screenshot1.png" alt="Gameplay Screenshot 2" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Water_Screenshot2.png" alt="Gameplay Screenshot 3" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Water_Screenshot3.png" alt="Gameplay Screenshot 4" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Water_Screenshot4.png" alt="Gameplay Screenshot 5" class="lightbox-trigger">
+					<img src="../assets/images/theme-park/Water_Screenshot5.png" alt="Gameplay Screenshot 6" class="lightbox-trigger">
+				</div>
+			</section>
+
+			<div id="lightbox-modal" class="lightbox-modal">
+				<span class="lightbox-close">&times;</span>
+				<img class="lightbox-content" id="lightbox-img" src="">
+			</div>
+
+			<script>
+				const lightbox = document.getElementById("lightbox-modal");
+				const lightboxImg = document.getElementById("lightbox-img");
+				const closeBtn = document.querySelector(".lightbox-close");
+
+				document.querySelectorAll(".lightbox-trigger").forEach(img => {
+					img.addEventListener("click", () => {
+						lightbox.style.display = "flex";
+						lightboxImg.src = img.src;
+					});
+				});
+
+				closeBtn.addEventListener("click", () => {
+					lightbox.style.display = "none";
+				});
+
+				lightbox.addEventListener("click", (e) => {
+					if (e.target === lightbox) {
+						lightbox.style.display = "none";
+					}
+				});
+			</script>
+		</main>
+	</body>
+
+</html>
